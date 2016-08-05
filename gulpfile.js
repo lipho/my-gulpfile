@@ -16,6 +16,7 @@ var cleanCSS = require('gulp-clean-css');
 var jsAssets = [];
 var htmlAssets = [];
 var cssAssets = [];
+var bsWatchFiles = [];
 
 function jsbundle() {
   var bun = function (jsAssets) {
@@ -86,7 +87,7 @@ gulp.task('serve', ['demon'], function () {
   var port = process.env.PORT || '3000';
   bs.init(
     {
-      files: ['!public/js/mapapp.js', 'public/**/*.*'],
+      files: [bsWatchFiles],
       proxy: 'localhost:' + port,
       port: 3001,
       open: false,
